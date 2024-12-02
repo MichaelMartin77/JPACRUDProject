@@ -8,27 +8,48 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class OrderTrackingTest {
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
 
+class OrderTrackingTest {
+	private static EntityManagerFactory emf; 
+	private static EntityManager em; 
+	private OrderTracking orderTracking; 
+	
+	
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
+		emf = Persistence.createEntityManagerFactory("EcommerceStore"); 
 	}
 
 	@AfterAll
 	static void tearDownAfterClass() throws Exception {
+		emf.close(); 
 	}
 
 	@BeforeEach
 	void setUp() throws Exception {
+		em = emf.createEntityManager(); 
+		
+		orderTracking = em.find(OrderTracking.class, 1); 
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
+		em.close();
+		orderTracking = null; 
 	}
 
 	@Test
-	void test() {
-		fail("Not yet implemented");
+	void test_OrderTracking_basic_mappings() {
+		assertNotNull(orderTracking); 
+		assertEquals(101, orderTracking.getCustomerId());
+		assertEquals("Pending", orderTracking.getOrderStatus());
+		assertEquals("341 Elm St, TX, Tracking: 6578", orderTracking.getShippingInfo());
+		assertEquals("Paid", orderTracking.getPaymentStatus());
+		assertNotNull(orderTracking.getOrderDate()); 
+		
 	}
 
 }

@@ -1,4 +1,5 @@
 package com.skilldistillery.jpaecommercestore.entities;
+
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 import java.util.Objects;
@@ -8,34 +9,34 @@ public class OrderTracking {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="OrderID")
-	private int orderId; 
-	
+	@Column(name = "id")
+	private int id;
+
 	@Column(name = "CustomerID")
-    private int customerId; 
-	
-	@Column(name="OrderStatus")
+	private int customerId;
+
+	@Column(name = "OrderStatus")
 	private String orderStatus;
-	
-	@Column(name="ShippingInfo")
+
+	@Column(name = "ShippingInfo")
 	private String shippingInfo;
-	
-	@Column(name="PaymentStatus")
-	private String paymentStatus; 
-	
-	@Column(name="OrderDate")
+
+	@Column(name = "PaymentStatus")
+	private String paymentStatus;
+
+	@Column(name = "OrderDate DATETIME")
 	private LocalDateTime orderDate;
 
-	// no-arg constructor 
-	public OrderTracking () {}
-	
-	
-	public int getOrderId() {
-		return orderId;
+	// no-arg constructor
+	public OrderTracking() {
 	}
 
-	public void setOrderId(int orderId) {
-		this.orderId = orderId;
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public int getCustomerId() {
@@ -80,7 +81,7 @@ public class OrderTracking {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(customerId, orderDate, orderId, orderStatus, paymentStatus, shippingInfo);
+		return Objects.hash(customerId, id, orderDate, orderStatus, paymentStatus, shippingInfo);
 	}
 
 	@Override
@@ -92,16 +93,16 @@ public class OrderTracking {
 		if (getClass() != obj.getClass())
 			return false;
 		OrderTracking other = (OrderTracking) obj;
-		return customerId == other.customerId && Objects.equals(orderDate, other.orderDate) && orderId == other.orderId
+		return customerId == other.customerId && id == other.id && Objects.equals(orderDate, other.orderDate)
 				&& Objects.equals(orderStatus, other.orderStatus) && Objects.equals(paymentStatus, other.paymentStatus)
 				&& Objects.equals(shippingInfo, other.shippingInfo);
 	}
 
 	@Override
 	public String toString() {
-		return "OrderTracking [orderId=" + orderId + ", customerId=" + customerId + ", orderStatus=" + orderStatus
+		return "OrderTracking [id=" + id + ", customerId=" + customerId + ", orderStatus=" + orderStatus
 				+ ", shippingInfo=" + shippingInfo + ", paymentStatus=" + paymentStatus + ", orderDate=" + orderDate
 				+ "]";
-	} 
-	
+	}
+
 }
