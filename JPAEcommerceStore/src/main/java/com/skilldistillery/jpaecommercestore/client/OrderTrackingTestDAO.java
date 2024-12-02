@@ -8,12 +8,15 @@ public class OrderTrackingTestDAO {
 	public static void main(String[] args) {
 		OrderTrackingDAO dao = new OrderTrackingDAOImpl();
 
-//		OrderTracking createdOrder = dao.create(order);
-		
 		OrderTracking order = new OrderTracking(105, "Shipped", "4681 Glendale Rd", "Paid");
-		OrderTracking result = dao.update(6, order);
+		OrderTracking createdOrder = dao.create(order);
 		
-		System.out.println(result);
+//		OrderTracking order = new OrderTracking(105, "Shipped", "4681 Glendale Rd", "Paid");
+//		OrderTracking result = dao.update(6, order);
+		
+//		dao.destory(6);
+		
+		
 	}
 
 }

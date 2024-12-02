@@ -41,4 +41,19 @@ public class OrderTrackingDAOImpl implements OrderTrackingDAO {
 		return managed;
 	}
 
+	@Override
+	public boolean destory(int id) {
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("EcommerceStore");
+		EntityManager em = emf.createEntityManager();
+		
+		OrderTracking order = em.find(OrderTracking.class, id);
+		em.getTransaction().begin();
+		
+		em.remove(order);
+		
+		em.getTransaction().commit();
+		
+		return true;
+	}
+
 }
