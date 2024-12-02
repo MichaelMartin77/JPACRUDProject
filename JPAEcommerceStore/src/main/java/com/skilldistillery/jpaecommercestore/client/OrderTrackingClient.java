@@ -13,7 +13,7 @@ public class OrderTrackingClient {
 
 		OrderTracking orderTracking = em.find(OrderTracking.class, 1);
 
-		System.out.println(orderTracking);
+//		System.out.println(orderTracking);
 		
 		em.close();
 		emf.close();

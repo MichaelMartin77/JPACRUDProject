@@ -30,6 +30,13 @@ public class OrderTracking {
 	// no-arg constructor
 	public OrderTracking() {
 	}
+	
+	public OrderTracking(int customerId, String orderStatus, String shippingInfo, String paymentStatus) {
+		this.customerId = customerId; 
+		this.orderStatus = orderStatus; 
+		this.paymentStatus = paymentStatus; 
+		this.shippingInfo = shippingInfo; 
+	}
 
 	public int getId() {
 		return id;

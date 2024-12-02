@@ -45,8 +45,8 @@ class OrderTrackingTest {
 	void test_OrderTracking_basic_mappings() {
 		assertNotNull(orderTracking); 
 		assertEquals(101, orderTracking.getCustomerId());
-		assertEquals("Pending", orderTracking.getOrderStatus());
-		assertEquals("341 Elm St, TX, Tracking: 6578", orderTracking.getShippingInfo());
+		assertEquals("Shipped", orderTracking.getOrderStatus());
+		assertEquals("324 Elm St Rd", orderTracking.getShippingInfo());
 		assertEquals("Paid", orderTracking.getPaymentStatus());
 		assertNotNull(orderTracking.getOrderDate()); 
 		
