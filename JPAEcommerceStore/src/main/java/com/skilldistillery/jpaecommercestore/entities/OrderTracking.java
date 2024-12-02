@@ -3,7 +3,7 @@ import jakarta.persistence.*;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
-
+@Entity
 public class OrderTracking {
 
 	@Id
@@ -26,6 +26,10 @@ public class OrderTracking {
 	@Column(name="OrderDate")
 	private LocalDateTime orderDate;
 
+	// no-arg constructor 
+	public OrderTracking () {}
+	
+	
 	public int getOrderId() {
 		return orderId;
 	}
