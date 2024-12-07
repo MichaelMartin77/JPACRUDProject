@@ -8,14 +8,23 @@ public class OrderTrackingTestDAO {
 	public static void main(String[] args) {
 		OrderTrackingDAO dao = new OrderTrackingDAOImpl();
 
-		OrderTracking order = new OrderTracking(105, "Shipped", "4681 Glendale Rd", "Paid");
+		OrderTracking order = new OrderTracking(105, "Delivered", "8451 Glenn Day Rd", "Paid");
 		OrderTracking createdOrder = dao.create(order);
 		
-//		OrderTracking order = new OrderTracking(105, "Shipped", "4681 Glendale Rd", "Paid");
-//		OrderTracking result = dao.update(6, order);
-		
-//		dao.destory(6);
-		
+
+		int testId = createdOrder.getId(); // Replace with an ID that exists in the database
+        OrderTracking foundOrder = dao.findById(testId);
+
+        if (foundOrder != null) {
+            System.out.println("Found Order:");
+            System.out.println("ID: " + foundOrder.getId());
+            System.out.println("Customer ID: " + foundOrder.getCustomerId());
+            System.out.println("Order Status: " + foundOrder.getOrderStatus());
+            System.out.println("Shipping Info: " + foundOrder.getShippingInfo());
+            System.out.println("Payment Status: " + foundOrder.getPaymentStatus());
+        } else {
+            System.out.println("No order found with ID: " + testId);
+        }
 		
 	}
 
