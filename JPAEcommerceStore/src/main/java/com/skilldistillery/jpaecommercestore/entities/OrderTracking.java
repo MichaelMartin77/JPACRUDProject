@@ -9,8 +9,10 @@ public class OrderTracking {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
 	private int id;
+
+	@Column(name = "ORDERDATE DATETIME")
+	private LocalDateTime orderDate;
 
 	@Column(name = "CustomerID")
 	private int customerId;
@@ -24,18 +26,16 @@ public class OrderTracking {
 	@Column(name = "PaymentStatus")
 	private String paymentStatus;
 
-	@Column(name = "OrderDate DATETIME")
-	private LocalDateTime orderDate;
 
 	// no-arg constructor
 	public OrderTracking() {
 	}
-	
+
 	public OrderTracking(int customerId, String orderStatus, String shippingInfo, String paymentStatus) {
-		this.customerId = customerId; 
-		this.orderStatus = orderStatus; 
-		this.paymentStatus = paymentStatus; 
-		this.shippingInfo = shippingInfo; 
+		this.customerId = customerId;
+		this.orderStatus = orderStatus;
+		this.paymentStatus = paymentStatus;
+		this.shippingInfo = shippingInfo;
 	}
 
 	public int getId() {
