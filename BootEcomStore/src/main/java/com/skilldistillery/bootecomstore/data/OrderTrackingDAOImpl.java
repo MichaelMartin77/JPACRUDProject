@@ -20,11 +20,11 @@ public class OrderTrackingDAOImpl implements OrderTrackingDAO {
 	@PersistenceContext
 	private EntityManager em;
 
+	
 	@Override
 	public OrderTracking create(OrderTracking order) {
-
 		em.persist(order);
-
+		System.out.println("Order persisted with ID: " + order.getId());
 		return order;
 	}
 
