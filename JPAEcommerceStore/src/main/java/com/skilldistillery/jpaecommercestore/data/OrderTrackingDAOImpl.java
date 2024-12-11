@@ -1,10 +1,13 @@
 package com.skilldistillery.jpaecommercestore.data;
 
+import java.util.List;
+
 import com.skilldistillery.jpaecommercestore.entities.OrderTracking;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
+import jakarta.persistence.TypedQuery;
 
 public class OrderTrackingDAOImpl implements OrderTrackingDAO {
 
@@ -69,6 +72,16 @@ public class OrderTrackingDAOImpl implements OrderTrackingDAO {
 	        
 	        em.close();
 	    }
+	}
+	
+	public List<OrderTracking> findAll() {
+		 EntityManagerFactory emf = Persistence.createEntityManagerFactory("EcommerceStore");
+		    EntityManager em = emf.createEntityManager();
+		String jpql = "SELECT o FROM OrderTracking o";
+
+		TypedQuery<OrderTracking> query = em.createQuery(jpql, OrderTracking.class);
+
+		return query.getResultList();
 	}
 
 }

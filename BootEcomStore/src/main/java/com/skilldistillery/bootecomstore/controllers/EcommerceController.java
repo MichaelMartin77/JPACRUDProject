@@ -78,5 +78,14 @@ public class EcommerceController {
 		return "createdOrderView";
 
 	}
+	
+	@PostMapping(path = "deleteOrder.do")
+	public String deleteOrder(@RequestParam("id")int id, Model model) {
+		boolean order = dao.destory(id); 
+		
+		model.addAttribute("deletedOrder", order);
+		
+		return "deleteOrder";
+	}
 
 }

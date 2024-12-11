@@ -21,7 +21,9 @@
 		<p>${order.paymentStatus}</p>
 		<h4>Order Date:</h4>
 		<p>${order.orderDate}</p>
+		<a href="home.jsp">Return Home</a>
 	</div>
+
 	<%@ include file="bootstrapfooter.jsp"%>
 </body>
 </html>

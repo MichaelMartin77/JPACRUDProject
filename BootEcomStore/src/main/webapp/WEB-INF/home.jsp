@@ -10,45 +10,60 @@
 <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-	<div class="container-fluid">
+	<div class="welcome"> 
+	<h1>Welcome!</h1>
+	<p>Create, Read, Update, or Delete an Order</p>
+	</div>	
+	<div class="container">
+		<div class="container-fluid">
+			<h4>Select Your Order Id:</h4>
+			<form action="getOrder.do" method="GET">
+				Order Status: <input type="text" name="orderid" class="form-control" />
+				<input type="submit" value="Show Order" class="btn btn-primary" />
+			</form>
+		</div>
 
-		<h3>Select your Order Id:</h3>
-		<form action="getOrder.do" method="GET">
-			Order Status: <input type="text" name="orderid" /> <input
-				type="submit" value="Show Order" />
-		</form>
+		<div class="container-fluid">
+			<h4>Update Your Order Below:</h4>
+			<form action="getUpdatedOrder.do" method="POST">
+				<label>Enter the order to update:</label> <input type="text"
+					name="id" class="form-control" /><br> <label>Order
+					Status:</label> <input type="text" name="orderstatus" class="form-control" " />
+				<br> <label>Shipping Information:</label> <input type="text"
+					name="shippinginfo" class="form-control" /> <br> <label>Payment
+					Status:</label> <input type="text" name="paymentStatus"
+					class="form-control" /> <br> <input type="submit"
+					value="Update Order" class="btn btn-primary" />
+			</form>
+		</div>
+
+		<div class="container-fluid">
+			<h4>Create A New Order</h4>
+			<form action="createOrder.do" method="POST">
+				<label>Please enter the new customer ID:</label> <input type="text"
+					name="customerid" class="form-control" /><br> <label>Please
+					enter the order Status:</label> <input type="text" name="orderstatus"
+					class="form-control" /><br> <label>Please enter the
+					shipping information:</label> <input type="text" name="shippinginfo"
+					class="form-control" /><br> <label>Please enter the
+					Payment Status:</label> <input type="text" name="paymentstatus"
+					class="form-control" /><br> <label>Please enter the
+					date the item was ordered:</label> <input type="text" name="orderdate"
+					class="form-control" /><br> <input type="submit"
+					value="Create Order" class="btn btn-primary" /><br>
+			</form>
+		</div>
+
+		<div class="container-fluid">
+			<h4>Delete Order By Id</h4>
+			<form action="deleteOrder.do" method="POST">
+				<label>Please enter the new customer ID:</label> <input type="text"
+					name="id" class="form-control" /><br> <input type="submit"
+					value="Delete Order" class="btn btn-primary" /><br>
+			</form>
+		</div>
 	</div>
 
-	<div class="container-fluid">
-		<h3>Update Your Order Below:</h3>
-		<form action="getUpdatedOrder.do" method="POST">
-			<label>Enter the order to update:</label> <input type="text"
-				name="id" /><br> <label>Order Status:</label> <input
-				type="text" name="orderstatus" class="m3
-		" /> <br> <label>Shipping
-				Information:</label> <input type="text" name="shippinginfo" /> <br> <label>Payment
-				Status:</label> <input type="text" name="paymentStatus" /> <br> <input
-				type="submit" value="Update Order" />
-		</form>
-	</div>
-
-	<div class="container-fluid">
-		<h3>Create a new order</h3>
-		<form action="createOrder.do" method="POST">
-		<label>Please enter the new customer ID:</label>
-		<input type="text" name="customerid" /><br>
-		<label>Please enter the order Status:</label>
-		<input type="text" name="orderstatus" /><br>
-		<label>Please enter the shipping information:</label>
-		<input type="text" name="shippinginfo" /><br>
-		<label>Please enter the Payment Status:</label>
-		<input type="text" name="paymentstatus" /><br>
-		<label>Please enter the date the item was ordered:</label>
-		<input type="text" name="orderdate" /><br>
-		<input type="submit" value="Create Order" /><br>
-		</form>
-	</div>
-	
 	<%@ include file="bootstrapfooter.jsp"%>
 </body>
 </html>

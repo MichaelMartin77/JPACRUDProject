@@ -11,7 +11,7 @@
 <body>
 	<h4>Order Updated</h4>
 
-
+	<a href="home.jsp">Return Home</a>
 	<%@ include file="bootstrapfooter.jsp"%>
 </body>
 </html>
